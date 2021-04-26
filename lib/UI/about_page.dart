@@ -1,3 +1,5 @@
+import 'dart:js';
+
 import 'package:flutter/material.dart';
 import 'package:pandafolio/models/constant.dart';
 
@@ -40,7 +42,7 @@ class AboutPage extends StatelessWidget {
                       width: MediaQuery.of(context).size.width * 0.8,
                       margin: EdgeInsets.all(20),
                       padding: EdgeInsets.all(10),
-                      child: buildAbout()),
+                      child: buildAbout(context)),
                   // buildTab2(),
                   // buildTab3(),
                   // Text("Tab1", style: TextStyle(fontSize: 40)),
@@ -118,14 +120,14 @@ class AboutPage extends StatelessWidget {
     );
   }
 
-  Column buildAbout() {
+  Column buildAbout(BuildContext context) {
     return Column(
       children: [
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
             Container(
-              width: 500,
+              width: MediaQuery.of(context).size.width * 0.4,
               margin: EdgeInsets.all(10),
               padding: EdgeInsets.all(10),
               child: Column(
@@ -174,7 +176,7 @@ class AboutPage extends StatelessWidget {
               ),
             ),
             Container(
-              width: 500,
+              width: MediaQuery.of(context).size.width * 0.4,
               margin: EdgeInsets.all(10),
               padding: EdgeInsets.all(10),
               child: Column(
@@ -194,18 +196,7 @@ class AboutPage extends StatelessWidget {
                     children: [
                       SizedBox(
                           width: 100, child: Text('Email', style: stylebiasa)),
-                      Text('berly_set22@apps.ipb.ac.id',
-                          style: stylebiasa)
-                    ],
-                  ),
-                  SizedBox(
-                    height: 10,
-                  ),
-                  Row(
-                    children: [
-                      SizedBox(
-                          width: 100, child: Text('Phone/WA', style: stylebiasa)),
-                      Text('+62-895-0715-3745', style: stylebiasa)
+                      Text('berly_set22@apps.ipb.ac.id', style: stylebiasa)
                     ],
                   ),
                   SizedBox(
@@ -215,7 +206,17 @@ class AboutPage extends StatelessWidget {
                     children: [
                       SizedBox(
                           width: 100,
-                          child: Text('Line', style: stylebiasa)),
+                          child: Text('Phone/WA', style: stylebiasa)),
+                      Text('+62-895-0715-3745', style: stylebiasa)
+                    ],
+                  ),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  Row(
+                    children: [
+                      SizedBox(
+                          width: 100, child: Text('Line', style: stylebiasa)),
                       Text('berly_st2120', style: stylebiasa)
                     ],
                   ),
@@ -224,7 +225,52 @@ class AboutPage extends StatelessWidget {
             ),
           ],
         ),
+        Container(
+          width: MediaQuery.of(context).size.width * 0.6,
+          margin: EdgeInsets.all(20),
+          color: Colors.amber,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              buildBox(context, 'Projects Done', '7 Projects', 'assets/projectdone.png'),
+              buildBox(context, 'Points Earned', '150 Points', 'assets/star.png'),
+              buildBox(context, 'Skills', '2.5/5 stars', 'assets/skill.png'),
+              buildBox(context, 'Experiences', '2 years', 'assets/thumbsup.png'),
+            ],
+          ),
+        ),
       ],
+    );
+  }
+
+  Container buildBox(BuildContext context, String title, String desc, String loc) {
+    return Container(
+      padding: EdgeInsets.all(10),
+      child: Column(
+        children: [
+          Container(
+            width: 140,
+            height: 115,
+            decoration: BoxDecoration(color: blueLow),
+            child: Image.asset(loc, fit: BoxFit.contain, height: 10, width: 10,),
+            // child: Image(
+            //   image: AssetImage('assets/icon_projectdone.png'), fit: BoxFit.contain, height: 140,
+            // ),
+          ),
+          SizedBox(
+            height: 10,
+          ),
+          Text(
+            title,
+            style: TextStyle(
+                color: textWhite, fontSize: 16, fontWeight: FontWeight.bold),
+          ),
+          SizedBox(
+            height: 10,
+          ),
+          Text(desc, style: stylebiasa),
+        ],
+      ),
     );
   }
 }
