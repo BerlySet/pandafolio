@@ -42,12 +42,18 @@ class AboutPage extends StatelessWidget {
                       width: MediaQuery.of(context).size.width * 0.8,
                       margin: EdgeInsets.all(20),
                       padding: EdgeInsets.all(10),
+                      color: Colors.red,
                       child: buildAbout(context)),
-                  // buildTab2(),
-                  // buildTab3(),
-                  // Text("Tab1", style: TextStyle(fontSize: 40)),
-                  Text("Tab2", style: TextStyle(fontSize: 40)),
-                  Text("Tab3", style: TextStyle(fontSize: 40)),
+                  Container(
+                      width: MediaQuery.of(context).size.width * 0.8,
+                      margin: EdgeInsets.all(20),
+                      padding: EdgeInsets.all(10),
+                      child: buildResume(context)),
+                  Container(
+                      width: MediaQuery.of(context).size.width * 0.8,
+                      margin: EdgeInsets.all(20),
+                      padding: EdgeInsets.all(10),
+                      child: buildProject(context)),
                 ],
               ),
             ),
@@ -120,7 +126,7 @@ class AboutPage extends StatelessWidget {
     );
   }
 
-  Column buildAbout(BuildContext context) {
+  Column buildProject(BuildContext context) {
     return Column(
       children: [
         Row(
@@ -228,14 +234,16 @@ class AboutPage extends StatelessWidget {
         Container(
           width: MediaQuery.of(context).size.width * 0.6,
           margin: EdgeInsets.all(20),
-          color: Colors.amber,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              buildBox(context, 'Projects Done', '7 Projects', 'assets/projectdone.png'),
-              buildBox(context, 'Points Earned', '150 Points', 'assets/star.png'),
+              buildBox(context, 'Projects Done', '7 Projects',
+                  'assets/projectdone.png'),
+              buildBox(
+                  context, 'Points Earned', '150 Points', 'assets/star.png'),
               buildBox(context, 'Skills', '2.5/5 stars', 'assets/skill.png'),
-              buildBox(context, 'Experiences', '2 years', 'assets/thumbsup.png'),
+              buildBox(
+                  context, 'Experiences', '2 years', 'assets/thumbsup.png'),
             ],
           ),
         ),
@@ -243,7 +251,8 @@ class AboutPage extends StatelessWidget {
     );
   }
 
-  Container buildBox(BuildContext context, String title, String desc, String loc) {
+  Container buildBox(
+      BuildContext context, String title, String desc, String loc) {
     return Container(
       padding: EdgeInsets.all(10),
       child: Column(
@@ -252,7 +261,12 @@ class AboutPage extends StatelessWidget {
             width: 140,
             height: 115,
             decoration: BoxDecoration(color: blueLow),
-            child: Image.asset(loc, fit: BoxFit.contain, height: 10, width: 10,),
+            child: Image.asset(
+              loc,
+              fit: BoxFit.contain,
+              height: 10,
+              width: 10,
+            ),
             // child: Image(
             //   image: AssetImage('assets/icon_projectdone.png'), fit: BoxFit.contain, height: 140,
             // ),
@@ -273,4 +287,160 @@ class AboutPage extends StatelessWidget {
       ),
     );
   }
+}
+
+Column buildResume(BuildContext context) {
+  return Column(
+    children: [
+      Row(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Column(
+            children: [
+              Container(
+                width: MediaQuery.of(context).size.width * 0.4,
+                margin: EdgeInsets.all(10),
+                padding: EdgeInsets.all(10),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      'Skills',
+                      style: TextStyle(
+                          color: textWhite,
+                          fontSize: medFontSize,
+                          fontWeight: FontWeight.w600),
+                    ),
+                    SizedBox(
+                      height: 20,
+                    ),
+                    Row(
+                      children: [
+                        SizedBox(
+                            width: 200, child: Text('Dart', style: stylebiasa)),
+                        Image(
+                          image: AssetImage('assets/stars3.png'),
+                          width: 100,
+                        ),
+                      ],
+                    ),
+                    SizedBox(
+                      height: 10,
+                    ),
+                    Row(
+                      children: [
+                        SizedBox(
+                            width: 200,
+                            child: Text('Mobile Apps Development',
+                                style: stylebiasa)),
+                        Image(
+                          image: AssetImage('assets/stars25.png'),
+                          width: 100,
+                        ),
+                      ],
+                    ),
+                    SizedBox(
+                      height: 10,
+                    ),
+                    Row(
+                      children: [
+                        SizedBox(
+                            width: 200, child: Text('Java', style: stylebiasa)),
+                        Image(
+                          image: AssetImage('assets/stars2.png'),
+                          width: 100,
+                        ),
+                      ],
+                    ),
+                    SizedBox(
+                      height: 10,
+                    ),
+                    Row(
+                      children: [
+                        SizedBox(
+                            width: 200, child: Text('HTML', style: stylebiasa)),
+                        Image(
+                          image: AssetImage('assets/stars15.png'),
+                          width: 100,
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+              Container(
+                width: MediaQuery.of(context).size.width * 0.4,
+                height: MediaQuery.of(context).size.height * 0.2,
+                margin: EdgeInsets.all(10),
+                padding: EdgeInsets.all(10),
+                color: Colors.red,
+              )
+            ],
+          ),
+          Container(
+            width: MediaQuery.of(context).size.width * 0.4,
+            margin: EdgeInsets.all(10),
+            padding: EdgeInsets.all(10),
+            color: Colors.amber,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  'Contact',
+                  style: TextStyle(
+                      color: textWhite,
+                      fontSize: medFontSize,
+                      fontWeight: FontWeight.w600),
+                ),
+                SizedBox(
+                  height: 20,
+                ),
+                Row(
+                  children: [
+                    SizedBox(
+                        width: 100, child: Text('Email', style: stylebiasa)),
+                    Text('berly_set22@apps.ipb.ac.id', style: stylebiasa)
+                  ],
+                ),
+                SizedBox(
+                  height: 10,
+                ),
+                Row(
+                  children: [
+                    SizedBox(
+                        width: 100, child: Text('Phone/WA', style: stylebiasa)),
+                    Text('+62-895-0715-3745', style: stylebiasa)
+                  ],
+                ),
+                SizedBox(
+                  height: 10,
+                ),
+                Row(
+                  children: [
+                    SizedBox(
+                        width: 100, child: Text('Line', style: stylebiasa)),
+                    Text('berly_st2120', style: stylebiasa)
+                  ],
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
+    ],
+  );
+}
+
+Column buildAbout(BuildContext context) {
+  return Column(
+    children: [
+      Row(
+        mainAxisAlignment: MainAxisAlignment.end,
+        children: [Text('Filter Berdasarkan'), SizedBox(width: 20,) ,Text('ini dropdown'), ],
+      ),
+      SizedBox(height: 20,),
+      // card 1
+    ],
+  );
 }
